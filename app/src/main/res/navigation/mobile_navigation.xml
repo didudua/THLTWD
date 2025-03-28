@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="due.cuoiky.thltwd.ui.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_hotel_detail"
+            app:destination="@id/navigation_hotel_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_listRoom"
+        android:name="due.cuoiky.thltwd.ui.RoomFragment"
+        android:label="{hotelName}"
+        tools:layout="@layout/fragment_hotel_room">
+        <argument
+            android:name="hotelName"
+            app:argType="string"
+            android:defaultValue="defaultId" />
+        <action
+            android:id="@+id/action_navigation_listRoom_to_navigation_formInfor"
+            app:destination="@id/navigation_formInfor" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="due.cuoiky.thltwd.ui.RoomFragment"
+        android:label="Account"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_hotel_detail"
+        android:name="due.cuoiky.thltwd.ui.HotelDetailFragment"
+        android:label="Hotel: {hotelName}"
+        tools:layout="@layout/fragment_hotel_detail">
+        <argument
+            android:name="hotelName"
+            app:argType="string"
+            android:defaultValue="defaultId" />
+        <action
+            android:id="@+id/action_navigation_hotel_detail_to_navigation_booking"
+            app:destination="@id/navigation_listRoom" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_formInfor"
+        android:name="due.cuoiky.thltwd.ui.InfoFragment"
+        android:label="Thông tin cá nhân"
+        tools:layout="@layout/fragment_form_infor" >
+        <action
+            android:id="@+id/action_navigation_formInfor_to_navigation_Confirm"
+            app:destination="@id/navigation_Confirm" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_Confirm"
+        android:name="due.cuoiky.thltwd.ui.ConfirmFragment"
+        android:label="Thông tin cá nhân"
+        tools:layout="@layout/fragment_confirm_infor" >
+        <action
+            android:id="@+id/action_navigation_Confirm_to_navigation_QRPayment"
+            app:destination="@id/navigation_QRPayment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_QRPayment"
+        android:name="due.cuoiky.thltwd.ui.QRPaymentFragment"
+        android:label="Thông tin cá nhân"
+        tools:layout="@layout/fragment_qr_payment" >
+        <action
+            android:id="@+id/action_navigation_QRPayment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_Booking"
+        android:name="due.cuoiky.thltwd.ui.BookingFragment"
+        android:label="Đặt Phòng"
+        tools:layout="@layout/fragment_booking" />
+
+</navigation>
